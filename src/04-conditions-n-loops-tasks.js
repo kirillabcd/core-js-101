@@ -1,3 +1,5 @@
+/* eslint-disable comma-dangle */
+/* eslint-disable operator-linebreak */
 /* *************************************************************************************************
  *                                                                                                *
  * Please read the following tutorial before implementing tasks:                                   *
@@ -135,10 +137,10 @@ function isTriangle(a, b, c) {
  */
 function doRectanglesOverlap(rect1, rect2) {
   if (
-    rect2.left > rect1.left + rect1.width
-    || rect2.top > rect1.top + rect1.height
-    || rect2.left + rect2.width < rect1.left
-    || rect2.top + rect2.heigh < rect1.top
+    rect2.left > rect1.left + rect1.width ||
+    rect2.top > rect1.top + rect1.height ||
+    rect2.left + rect2.width < rect1.left ||
+    rect2.top + rect2.heigh < rect1.top
   ) {
     return false;
   }
@@ -174,8 +176,8 @@ function doRectanglesOverlap(rect1, rect2) {
 function isInsideCircle(circle, point) {
   // the formula ((x - a)*(x - a) + (y - b)*(y - b) <= r*r)
   return (
-    (point.x - circle.center.x) ** 2 + (point.y - circle.center.y) ** 2
-    < circle.radius ** 2
+    (point.x - circle.center.x) ** 2 + (point.y - circle.center.y) ** 2 <
+    circle.radius ** 2
   );
 }
 
@@ -193,7 +195,7 @@ function isInsideCircle(circle, point) {
 function findFirstSingleChar(str) {
   return (
     Array.from(str).find(
-      (char) => str.indexOf(char) === str.lastIndexOf(char),
+      (char) => str.indexOf(char) === str.lastIndexOf(char)
     ) || null
   );
 }
@@ -453,8 +455,18 @@ function getCommonDirectoryPath(pathes) {
  *                         [ 6 ]]
  *
  */
-function getMatrixProduct(/* m1, m2 */) {
-  throw new Error('Not implemented');
+function getMatrixProduct(m1, m2) {
+  const res = [];
+  for (let i = 0; i < m1.length; i += 1) {
+    res[i] = [];
+    for (let j = 0; j < m1.length; j += 1) {
+      res[i][j] = 0;
+      for (let k = 0; k < m1[0].length; k += 1) {
+        res[i][j] += m1[i][k] * m2[k][j];
+      }
+    }
+  }
+  return res;
 }
 
 /**
